@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "209034142142",
+    "project_id": "bmi-fb",
+    "storage_bucket": "bmi-fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209034142142:android:0942129ee270b8432319ef",
+        "android_client_info": {
+          "package_name": "com.example.bmi_firebase_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209034142142-c4agrlq798anv1hrm3eus1v0q27hf1jr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAQpalsrbMdkzWWq1ly7dobX1hqCP_prk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209034142142-c4agrlq798anv1hrm3eus1v0q27hf1jr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
