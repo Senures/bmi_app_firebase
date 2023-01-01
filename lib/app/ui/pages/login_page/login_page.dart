@@ -105,8 +105,8 @@ class LoginPage extends GetView<LoginController> {
               ),
               InkWell(
                 onTap: () {
-                  /*  controller.service.account(controller.emailcontroller.text,
-                      controller.passwordcontroller.text); */
+                   controller.service.account(controller.emailcontroller.text,
+                      controller.passwordcontroller.text);
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15),

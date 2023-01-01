@@ -8,8 +8,10 @@ import '../../routes/app_pages.dart';
 
 class AuthService extends GetxService {
   late UserCredential credential;
+
   Future<AuthService> init() async {
     //createUser();
+
     return this;
   }
 
@@ -21,8 +23,7 @@ class AuthService extends GetxService {
         password: password,
       );
       if (credential.user != null) {
-        //oluşturulan kullanıcı boş değilse users collectiona atsın
-        fireStoreService.createUserCollection(credential, role);
+        fireStoreService.createUserCollection(credential);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -43,16 +44,18 @@ class AuthService extends GetxService {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      print("Giriş yapıldı ${credential.user?.email}");
+      if (credential.user != null) {
+        var data = await FirebaseFirestore.instance
+            .collection("users")
+            .doc(credential.user!.uid)
+            .get();
 
-      var data = await FirebaseFirestore.instance
-          .collection("users")
-          .doc(credential.user!.uid)
-          .get();
-
-      //  Pref.setBool("isEditor", data.data()!["isEditor"]);
-
-      Get.offAndToNamed(Routes.HOME);
+        if (data.data()?["goal"] == null) {
+          Get.offAndToNamed(Routes.USER_INFO);
+        } else {
+          Get.offAndToNamed(Routes.BASE);
+        }
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
