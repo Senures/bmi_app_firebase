@@ -18,6 +18,10 @@ class BasePage extends GetView<BaseController> {
       return Scaffold(
         body: controller.getBody(),
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.transparent,
+          selectedItemColor: Colors.grey.shade300,
+          unselectedItemColor: Colors.white24,
+          elevation: 0,
           currentIndex: controller.currentIndex.value,
           onTap: (value) {
             controller.changeIndex(value);
@@ -29,7 +33,7 @@ class BasePage extends GetView<BaseController> {
             ),
             BottomNavigationBarItem(
               label: "BMI Score",
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.score_rounded),
             ),
           ],
         ),
