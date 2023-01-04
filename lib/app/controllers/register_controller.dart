@@ -18,6 +18,7 @@ class RegisterController extends GetxController {
 
   showPassword() {
     isShow.value = !isShow.value;
+    //deneme git control
   }
 
   @override
